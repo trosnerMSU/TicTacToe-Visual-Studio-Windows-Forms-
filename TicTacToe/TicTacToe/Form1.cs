@@ -25,7 +25,7 @@ namespace TicTacToe
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            timer.Interval = 50;
+            timer.Interval = 10;
             timer.Tick += new EventHandler(timer_tick);
             timer.Start();
 
@@ -34,7 +34,6 @@ namespace TicTacToe
 
         private void timer_tick(object sender, EventArgs e)
         {
-            UpdatePlayer1Score();
 
             if (player1turn)
             {
@@ -55,7 +54,7 @@ namespace TicTacToe
         private void UpdatePlayer1Score()
         {
             player1Score++;
-            player1scorebox.Text = player1turn.ToString();
+            player1scorebox.Text = player1Score.ToString();
         }
 
         private void UpdatePlayer2Score()
@@ -72,98 +71,118 @@ namespace TicTacToe
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Draw(button1);
 
             player1turn = !player1turn;
             buttonsPressed++;
-            button1.Enabled = false;
+            button1.Click -= this.button1_Click;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Draw(button2);
 
             player1turn = !player1turn;
             buttonsPressed++;
-            button2.Enabled = false;
+            button2.Click -= this.button2_Click;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Draw(button3);
 
             player1turn = !player1turn;
             buttonsPressed++;
-            button3.Enabled = false;
+            button3.Click -= this.button3_Click;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Draw(button4);
 
             player1turn = !player1turn;
             buttonsPressed++;
-            button4.Enabled = false;
+            button4.Click -= this.button4_Click;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            Draw(button5);
 
             player1turn = !player1turn;
             buttonsPressed++;
-            button5.Enabled = false;
+            button5.Click -= this.button5_Click;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            Draw(button6);
 
             player1turn = !player1turn;
             buttonsPressed++;
-            button6.Enabled = false;
+            button6.Click -= this.button6_Click;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            Draw(button7);
 
             player1turn = !player1turn;
             buttonsPressed++;
-            button7.Enabled = false;
+            button7.Click -= this.button7_Click;
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            Draw(button8);
 
             player1turn = !player1turn;
             buttonsPressed++;
-            button8.Enabled = false;
+            button8.Click -= this.button8_Click;
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-
+            Draw(button9);
 
             player1turn = !player1turn;
             buttonsPressed++;
-            button9.Enabled = false;
+            button9.Click -= this.button9_Click;
         }
 
         private void Reset()
         {
-            button1.BackgroundImage = null;
-            button1.Enabled = true;
-            button2.BackgroundImage = null;
-            button2.Enabled = true;
-            button3.BackgroundImage = null;
-            button3.Enabled = true;
-            button4.BackgroundImage = null;
-            button4.Enabled = true;
-            button5.BackgroundImage = null;
-            button5.Enabled = true;
-            button6.BackgroundImage = null;
-            button6.Enabled = true;
-            button7.BackgroundImage = null;
-            button7.Enabled = true;
-            button8.BackgroundImage = null;
-            button8.Enabled = true;
-            button9.BackgroundImage = null;
-            button9.Enabled = true;
+            button1.Image = null;
+            button1.Click += this.button1_Click;
+            button2.Image = null;
+            button2.Click += this.button2_Click;
+            button3.Image = null;
+            button3.Click += this.button3_Click;
+            button4.Image = null;
+            button4.Click += this.button4_Click;
+            button5.Image = null;
+            button5.Click += this.button5_Click;
+            button6.Image = null;
+            button6.Click += this.button6_Click;
+            button7.Image = null;
+            button7.Click += this.button7_Click;
+            button8.Image = null;
+            button8.Click += this.button8_Click;
+            button9.Image = null;
+            button9.Click += this.button9_Click;
             buttonsPressed = 0;
+        }
+
+        private void Draw(Button btn)
+        {
+            if (player1turn)
+            {
+                btn.Image = Image.FromFile("C:/Users/Owner/Desktop/C#Practice/TicTacToe (Visual Studio Windows Forms)/TicTacToe/Ximage.png");
+            }
+            else
+            {
+                btn.Image = Image.FromFile("C:/Users/Owner/Desktop/C#Practice/TicTacToe (Visual Studio Windows Forms)/TicTacToe/Oimage.png");
+            }
         }
     }
 
